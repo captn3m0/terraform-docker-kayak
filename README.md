@@ -7,7 +7,7 @@ Kayak is a Kubernetes distribution that relies on the Docker Engine API to boots
 It can be used alongside the [terraform-ignition-docker-api](https://registry.terraform.io/modules/captn3m0/docker-api/ignition/1.0.0) module to bootstrap a single node cluster on Core OS.
 
 It uses typhoon's [terraform-render-bootkube](https://github.com/poseidon/terraform-render-bootkube) to generate
-the assets.
+the assets. It is licensed under [MIT](https://nemo.mit-license.org/)
 
 ## Required Inputs
 
