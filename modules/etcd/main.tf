@@ -7,43 +7,42 @@ resource "docker_container" "etcd" {
     container_path = "/etcd-data"
   }
 
+  // Let the container talk to itself as a peer
+
+  host {
+    ip   = "${var.host_bind_ip}"
+    host = "${var.domain}"
+  }
   ports {
     internal = 2379
     external = 2379
     ip       = "${var.host_bind_ip}"
   }
-
   ports {
     internal = 2380
     external = 2380
     ip       = "${var.host_bind_ip}"
   }
-
   upload {
     content = "${var.pki["ca_cert"]}"
     file    = "/etc/ssl/ca_cert.pem"
   }
-
   upload {
     content = "${var.pki["server_cert"]}"
     file    = "/etc/ssl/server_cert.pem"
   }
-
   upload {
     content = "${var.pki["server_key"]}"
     file    = "/etc/ssl/server_key.pem"
   }
-
   upload {
     content = "${var.pki["peer_cert"]}"
     file    = "/etc/ssl/peer_cert.pem"
   }
-
   upload {
     content = "${var.pki["peer_key"]}"
     file    = "/etc/ssl/peer_key.pem"
   }
-
   env = [
     "ETCD_NAME=${var.node_name}",
     "ETCD_DATA_DIR=/etcd-data",
@@ -63,7 +62,6 @@ resource "docker_container" "etcd" {
     "ETCD_PEER_KEY_FILE=/etc/ssl/peer_key.pem",
     "ETCD_PEER_CLIENT_CERT_AUTH=true",
   ]
-
   command = [
     "/usr/local/bin/etcd",
   ]
