@@ -31,3 +31,8 @@ Type: `string`
 Description:
 
 Type: `string`
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+

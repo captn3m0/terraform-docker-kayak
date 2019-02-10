@@ -13,12 +13,6 @@ variable "node_taints" {
   default     = "node-role.kubernetes.io/master=:NoSchedule"
 }
 
-variable "depends_on" {
-  default = []
-
-  type = "list"
-}
-
 variable "asset_dir_volume_name" {
   default = "k8s-assets"
 }

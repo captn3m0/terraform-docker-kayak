@@ -21,8 +21,6 @@ module "etcd" {
     peer_cert   = "${module.assets.etcd_peer_cert}"
     peer_key    = "${module.assets.etcd_peer_key}"
   }
-
-  depends_on = "${module.assets.id}"
 }
 
 module "bootkube" {

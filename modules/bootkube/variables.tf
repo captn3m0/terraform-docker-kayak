@@ -26,12 +26,6 @@ variable "version" {
   default = "0.14.0"
 }
 
-variable "depends_on" {
-  default = []
-
-  type = "list"
-}
-
 variable "assets" {
   type = "map"
 }
